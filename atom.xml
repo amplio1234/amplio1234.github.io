@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Where is the next chocolate</title>
   
-  
+  <subtitle>you never know</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://amplio1234.github.io/"/>
   <updated>2018-03-24T01:09:02.058Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://amplio1234.github.io/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Bo</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/03/24/hello-world/"/>
-    <id>http://yoursite.com/2018/03/24/hello-world/</id>
+    <link href="https://amplio1234.github.io/2018/03/24/hello-world/"/>
+    <id>https://amplio1234.github.io/2018/03/24/hello-world/</id>
     <published>2018-03-24T01:09:02.058Z</published>
     <updated>2018-03-24T01:09:02.058Z</updated>
     
