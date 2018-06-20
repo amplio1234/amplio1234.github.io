@@ -100,21 +100,36 @@
 
 
 
-  <meta name="description" content="What is Weka? Weka is a data mining software suite developed by Waikato university in New Zealand. Weka is an abbreviation, it stands for Waikato Environment for Knowledge Analysis. We have got Pytho">
+  <meta name="description" content="What and why? What is ensemble learning? The idea behind is to build different models from data, hoping they complement each other and let them vote. The final result is combined from different persp">
 <meta name="keywords" content="Weka,Data mining">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Introduction to Weka">
-<meta property="og:url" content="https://amplio1234.github.io/2018/03/27/Introduction-to-Weka/index.html">
+<meta property="og:title" content="Ensemble learning">
+<meta property="og:url" content="https://amplio1234.github.io/2018/04/02/Ensemble-learning/index.html">
 <meta property="og:site_name" content="Where is the next chocolate">
-<meta property="og:description" content="What is Weka? Weka is a data mining software suite developed by Waikato university in New Zealand. Weka is an abbreviation, it stands for Waikato Environment for Knowledge Analysis. We have got Pytho">
+<meta property="og:description" content="What and why? What is ensemble learning? The idea behind is to build different models from data, hoping they complement each other and let them vote. The final result is combined from different persp">
 <meta property="og:locale" content="english">
-<meta property="og:image" content="https://amplio1234.github.io/images/iris1.png">
-<meta property="og:image" content="https://amplio1234.github.io/images/iris2.png">
-<meta property="og:updated_time" content="2018-03-27T02:42:26.463Z">
+<meta property="og:image" content="https://amplio1234.github.io/images/glass_dataset.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/glass_J48.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/bagging1.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/bagging2.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/bagging3.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/bagging4.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/randomforest.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/adaboost1.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/adaboost2.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/adaboost3.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/adaboost4.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking1.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking2.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking3.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking4.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking5.png">
+<meta property="og:image" content="https://amplio1234.github.io/images/stacking6.png">
+<meta property="og:updated_time" content="2018-05-23T07:41:55.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Introduction to Weka">
-<meta name="twitter:description" content="What is Weka? Weka is a data mining software suite developed by Waikato university in New Zealand. Weka is an abbreviation, it stands for Waikato Environment for Knowledge Analysis. We have got Pytho">
-<meta name="twitter:image" content="https://amplio1234.github.io/images/iris1.png">
+<meta name="twitter:title" content="Ensemble learning">
+<meta name="twitter:description" content="What and why? What is ensemble learning? The idea behind is to build different models from data, hoping they complement each other and let them vote. The final result is combined from different persp">
+<meta name="twitter:image" content="https://amplio1234.github.io/images/glass_dataset.png">
 
 
 
@@ -123,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="https://amplio1234.github.io/2018/03/27/Introduction-to-Weka/"/>
+  <link rel="canonical" href="https://amplio1234.github.io/2018/04/02/Ensemble-learning/"/>
 
 
 
@@ -133,7 +148,7 @@
   };
 </script>
 
-  <title>Introduction to Weka | Where is the next chocolate</title>
+  <title>Ensemble learning | Where is the next chocolate</title>
   
 
 
@@ -319,7 +334,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://amplio1234.github.io/2018/03/27/Introduction-to-Weka/">
+    <link itemprop="mainEntityOfPage" href="https://amplio1234.github.io/2018/04/02/Ensemble-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bo">
@@ -336,7 +351,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Introduction to Weka</h1>
+          <h1 class="post-title" itemprop="name headline">Ensemble learning</h1>
         
 
         <div class="post-meta">
@@ -348,7 +363,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-27T10:53:51+11:00">2018-03-27</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-02T19:45:35+10:00">2018-04-02</time>
             
 
             
@@ -384,9 +399,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/03/27/Introduction-to-Weka/#comments" itemprop="discussionUrl">
+                <a href="/2018/04/02/Ensemble-learning/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/27/Introduction-to-Weka/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/04/02/Ensemble-learning/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,16 +429,44 @@
       
 
       
-        <h3 id="what-is-weka"><a class="markdownIt-Anchor" href="#what-is-weka"></a> What is Weka?</h3>
-<p><a href="https://www.cs.waikato.ac.nz/ml/weka/" target="_blank" rel="noopener">Weka</a> is a data mining software suite developed by Waikato university in New Zealand. Weka is an abbreviation, it stands for Waikato Environment for Knowledge Analysis.</p>
-<p>We have got Python, R in data mining and they have been standard tool in the industry. Then why Weka?</p>
-<p>Because Weka is so handy to explore data and try different models without even writing single line of code. Yet it also offers flexbility to integrate with Python, R and even distributed computing architecture, for example Spark to do streaming computing, which is awesome. I will demonstrate those capabilities in my future blogs.</p>
-<h3 id="weka-explorer"><a class="markdownIt-Anchor" href="#weka-explorer"></a> Weka explorer</h3>
-<p><img src="/images/iris1.png" alt="iris dataset screenshot 1 in Weka."><br>
-<img src="/images/iris2.png" alt="iris dataset screenshot 2 in Weka."></p>
-<p>Weka explorer is the most used tool in Weka software suite. In the Proprocess panel, it shows the common statistics of dataset by default, such as minimal, maximum, mean and standard deviation of selected attribute.This immediately offers some insights of data. It is easy to spot whether the minimal, maximum or mean value is reasonable or not if data analyzer has domain knowledge.</p>
-<p>What is even more useful is the distribution graph. For example, to answer the question “Does the class Iris-setosa tend to have high or low values of sepallength” from the classic iris dataset, what user needs to do is to hover the mouse over each colored bar when class attribute is selected as shown in the picture above, then user can see Iris-setosa is colored in blue. Select the sepallength attibute, user can see the blue is distributed towards left, which has low values. Therefore, class Iris-setosa tend to have low values of sepallength.</p>
-<p>Combining common statistic values with distribution graph, user can quickly gain a sense of data and see whether the data is reasonable or not. This is very important for data mining in the initial phase and Weka does a good job offering this capability.</p>
+        <h3 id="what-and-why"><a class="markdownIt-Anchor" href="#what-and-why"></a> What and why?</h3>
+<p>What is ensemble learning? The idea behind is to build different models from data, hoping they complement each other and let them vote. The final result is combined from different perspectives of models like consulting ideas from a committee of experts. By doing this, the performance usually is very good and that is why nowadays most kaggle competition winners adopt some sort of ensembling learning method. Although the result is normally robust and satisfying, the produced model is often hard to interpret.</p>
+<h3 id="how-ensemble-learning-is-done"><a class="markdownIt-Anchor" href="#how-ensemble-learning-is-done"></a> How ensemble learning is done?</h3>
+<p>There are 4 mainstream techniques of doing ensemble learning. They are bagging, randomisation, boosting and stacking. Those techniques work well when models are unstable. A little change in the training data for tree models could generate totally different result, hence tree models are often adopted as base learners in ensemble learning scheme.</p>
+<p>The core of ensemble learning is to create diversity in base learners so that the ensembled model can benefit from it and have robust and excellent result.</p>
+<p>In bagging, it creates diversity by resampling the training set and combine base learners with voting for classification problems or averaging for regression problems.</p>
+<p>In randomisation, there is no standard way of doing it. It generally introduces some randomness in the process of learning. For example, decision tree learner can pick the best attibute to split on at each node. It could be randomised by picking one out of n best attributes at random. Random forest and genetic learning are examples of applying randomisation.</p>
+<p>In boosting, it creates diverity by complementing where the existing base learners make errors. In bagging, the assumption is models ideally complement each other by resampling training data. In boosting, it explicitly encourages new models to become expert for instances misclassified by assigning them greater weights. Boosting unlike bagging, is an iterative process, it explicitly tries to make sure all the base models complement each other before combining to ensembled model.</p>
+<p>In stacking, it combines result from different kinds of learners by another learner, called meta learner. Unlike bagging and boosting that combine same type base learners, stacking introduces diversity by combining different type learners. Instead of voting, stacking relies on meta learner to discover which classifiers are the reliable ones and how to combine them.</p>
+<h3 id="example-done-in-weka"><a class="markdownIt-Anchor" href="#example-done-in-weka"></a> Example done in Weka</h3>
+<p>In the example, I am building ensemble learning models against glass.arff dataset, which is a pre-installed dataset in Weka. As illustrated, the dataset is about relationship between glass making chemical elements and glass type.</p>
+<p><img src="/images/glass_dataset.png" alt="glass dataset in Weka."></p>
+<p>J48 is first applied as a baseline to compare with ensemble learning models. With default parameters, J48 gets 66.8% accuracy.<br>
+<img src="/images/glass_J48.png" alt="J48 applied on glass dataset."></p>
+<p>Bagging algorithm with default parameters reaches 72.4% accuracy, the margin of improvement over J48 is significant here. Note the important parameters here are bagSizePercent, batchSize, classifier, numIterations and seed. bagSize and batchSize specify each bagging batch contains how many instances and the resampling percentage from training set. Classifier specifies what base learner to use for bagging. numIterations assigns how many bagging iterations before combining. seed defines random seed for the process.<br>
+<img src="/images/bagging1.png" alt="Bagging applied on glass dataset."><br>
+<img src="/images/bagging2.png" alt="Bagging applied on glass dataset."></p>
+<p>As illustrated above, the default base learner is REPTree, what if we pick J48? This time accuracy reaches 74.3%.<br>
+<img src="/images/bagging3.png" alt="Bagging applied on glass dataset."><br>
+<img src="/images/bagging4.png" alt="Bagging applied on glass dataset."></p>
+<p>Let’s try randomisation by using random forest. With default parameters, the accuracy is 79.9%. This is huge improvement.<br>
+<img src="/images/randomforest.png" alt="Random forest applied on glass dataset."></p>
+<p>AdaBoostM1 is a typical boosting classifier in Weka that has excellent performance. Parameters are similar to those in bagging. With default parameters, the accuracy is 44.9%. As the AdaBoostM1 picks DecisionStump, a one layer decision tree, it maybe too simplified form learner for the glass classification task which has so many attributes. That may be the reason why the prediction performance is so poor here.<br>
+<img src="/images/adaboost1.png" alt="AdaBoostM1 applied on glass dataset."><br>
+<img src="/images/adaboost2.png" alt="AdaBoostM1 applied on glass dataset."></p>
+<p>What if we pick J48 instead of DecisionStump? Well, the performance is greatly improved to 74.3%, same as bagging method. That looks reasonable.<br>
+<img src="/images/adaboost3.png" alt="AdaBoostM1 applied on glass dataset."><br>
+<img src="/images/adaboost4.png" alt="AdaBoostM1 applied on glass dataset."></p>
+<p>Stacking is a bit tricky to reach good performance. As it is shown, stacking J48 and RandomTree to feed to a meta learner DecisonTable only reaches 65.4% accuracy.<br>
+<img src="/images/stacking1.png" alt="Stacking applied on glass dataset."><br>
+<img src="/images/stacking2.png" alt="Stacking applied on glass dataset."><br>
+<img src="/images/stacking3.png" alt="Stacking applied on glass dataset."></p>
+<p>After changing RandomTree to RandomForest and meta learner to PART, performance increases to 75.2%, still lower than using random forest model alone.<br>
+<img src="/images/stacking4.png" alt="Stacking applied on glass dataset."><br>
+<img src="/images/stacking5.png" alt="Stacking applied on glass dataset."><br>
+<img src="/images/stacking6.png" alt="Stacking applied on glass dataset."></p>
+<h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3>
+<p>Ensemble learning techniques are effective and usually boosts prediction performance. They are great tools in data science arsenal. Bagging, randomisation, boosting, stacking, which technique is the best? Again, there is no sure answer as data science is an experimental science. It depends on the problem domain and many other factors. What data scientist can do is to familiarise problem domain and keep trying.</p>
 
       
     </div>
@@ -459,8 +502,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/24/markdown-demo/" rel="next" title="Markdown demo">
-                <i class="fa fa-chevron-left"></i> Markdown demo
+              <a href="/2018/03/29/Simplicity-first/" rel="next" title="Simplicity first">
+                <i class="fa fa-chevron-left"></i> Simplicity first
               </a>
             
           </div>
@@ -469,8 +512,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/29/Simplicity-first/" rel="prev" title="Simplicity first">
-                Simplicity first <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/05/Reliably-assess-models/" rel="prev" title="Reliably assess models">
+                Reliably assess models <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -634,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-weka"><span class="nav-number">1.</span> <span class="nav-text"> What is Weka?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weka-explorer"><span class="nav-number">2.</span> <span class="nav-text"> Weka explorer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-and-why"><span class="nav-number">1.</span> <span class="nav-text"> What and why?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#how-ensemble-learning-is-done"><span class="nav-number">2.</span> <span class="nav-text"> How ensemble learning is done?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-done-in-weka"><span class="nav-number">3.</span> <span class="nav-text"> Example done in Weka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#summary"><span class="nav-number">4.</span> <span class="nav-text"> Summary</span></a></li></ol></div>
             
 
           </div>
@@ -788,9 +831,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'https://amplio1234.github.io/2018/03/27/Introduction-to-Weka/';
-        this.page.identifier = '2018/03/27/Introduction-to-Weka/';
-        this.page.title = 'Introduction to Weka';
+        this.page.url = 'https://amplio1234.github.io/2018/04/02/Ensemble-learning/';
+        this.page.identifier = '2018/04/02/Ensemble-learning/';
+        this.page.title = 'Ensemble learning';
       };
       function loadComments () {
         var d = document, s = d.createElement('script');

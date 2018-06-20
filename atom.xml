@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://amplio1234.github.io/"/>
-  <updated>2018-03-27T02:42:26.463Z</updated>
+  <updated>2018-05-30T15:13:40.519Z</updated>
   <id>https://amplio1234.github.io/</id>
   
   <author>
@@ -15,6 +15,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Streamed data processing</title>
+    <link href="https://amplio1234.github.io/2018/04/08/Streamed-data-processing/"/>
+    <id>https://amplio1234.github.io/2018/04/08/Streamed-data-processing/</id>
+    <published>2018-04-08T10:07:36.000Z</published>
+    <updated>2018-05-30T15:13:40.519Z</updated>
+    
+    <content type="html"><![CDATA[<p>Weka offers an interesting way of doing data mining. Users place Weka component on a 2D canvas to form a data processing workflow, which is a more flexible way than using Weka Explorer. The interface is called KnowledgeFlow. A great feature of KnowledgeFlow is that it can do streamed data processing, a way of incrementally processing data. Potentially unlimited amount of data can be processed like the popular Spark streaming.</p><h1 id="normal-processing"><a class="markdownIt-Anchor" href="#normal-processing"></a> Normal processing</h1><p>Normal processing can be done in Explorer as well as in KnowledgeFlow. Yet it is more flexible as it allows users to add all kinds of components to form a very customised workflow. As illustrated here, the workflow constructed here classifies dataset glass with cross validation by using J48. In addition to the normal processing, GraphViewer, classifierPerformanceEvaluator, textViewer and ModelPerformanceChart are added components to visualise model result details.</p><p><img src="/images/KnowledgeFlow1.png" alt="KnowledgeFlow intro."><br><img src="/images/KnowledgeFlow2.png" alt="KnowledgeFlow intro."></p><p>After running the established workflow, finish status of all the components can be seen in the status tab. If anything goes wrong, more details are shown in the log tab.<br><img src="/images/KnowledgeFlow3.png" alt="KnowledgeFlow intro."></p><p>The overall summary of model performance can be inspected from TextViewer.<br><img src="/images/KnowledgeFlow4.png" alt="KnowledgeFlow intro."></p><p>The generated tree structure of each cross validation iteration can be inspected from GraphViewer output. This delivers more details than Explorer which only produces one tree structure of the final model after cross validation.<br><img src="/images/KnowledgeFlow5.png" alt="KnowledgeFlow intro."></p><h1 id="streamed-data-processing"><a class="markdownIt-Anchor" href="#streamed-data-processing"></a> Streamed data processing</h1><p>There is limited amount of memory can be allocated for Explorer. This can be seen from Explorer’s status bar. As Explorer loads data into memory before processing it, data size bigger than Explorer can handle will cause Explorer program crash. Luckily, KnowledgeFlow does not load data into memory before processing it, therefore there is no limit of data size when KnowledgeFlow doing steamed data processing.<br><img src="/images/KnowledgeFlow6.png" alt="KnowledgeFlow intro."></p><p>There are key requirements when doing streaming. Firstly, as illustrated below, the data feed is instance instead of dataset used in normal processing. Secondly, the classfier algorithm component needs to be an updatable version and evaluator be an incremental version. Lastly, cross validation component is not allowed to be present in the workflow as it requires full dataset to be loaded into memory.<br><img src="/images/streamProcess1.png" alt="KnowledgeFlow intro."></p><p>As we can see here, after streamed processing the data, learning curve can be inspected in strip chart. It helps to see how fast model fits to data.<br><img src="/images/streamProcess2.png" alt="KnowledgeFlow intro."><br><img src="/images/streamProcess3.png" alt="KnowledgeFlow intro."></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Weka offers an interesting way of doing data mining. Users place Weka component on a 2D canvas to form a data processing workflow, which 
+      
+    
+    </summary>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/categories/Data-mining/"/>
+    
+    
+      <category term="Weka" scheme="https://amplio1234.github.io/tags/Weka/"/>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/tags/Data-mining/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reliably assess models</title>
+    <link href="https://amplio1234.github.io/2018/04/05/Reliably-assess-models/"/>
+    <id>https://amplio1234.github.io/2018/04/05/Reliably-assess-models/</id>
+    <published>2018-04-05T10:16:20.000Z</published>
+    <updated>2018-05-25T08:32:12.323Z</updated>
+    
+    <content type="html"><![CDATA[<p>Weka provides different tools for different purpose in the Weka workbench. Weka Experimenter offers a systematic way of assessing multiple models on multiple datasets effectively in one place.</p><h3 id="assess-single-model"><a class="markdownIt-Anchor" href="#assess-single-model"></a> Assess single model</h3><p>Most machine learning models come with some randomness that can be specified by random seed. To make sure the result accuracy is not by chance, Experimenter offers the facility to run model with different seed of specified number of iterations. The mean and standard deviation of accuracy of multiple run delivers more reliable assessment of model performance.</p><p>As illustrated here, I test J48 performance with 10 fold cross validation and 10 iterations. That’s totally 100 results. In the test output panel, the averaged prediction accuracy and its standard deviation are calculated. That is more reliable result than just doing 10 fold cross valiation in explorer as the 10 iterations tend to use different random seed.<br><img src="/images/experimenter1.png" alt="Experimenter intro."><br><img src="/images/experimenter2.png" alt="Experimenter intro."></p><p>Experimenter also offers saving detailed running detail of each iteration into a file for further analysis, which is an awesome facility to have when something goes wrong with the model.<br><img src="/images/experimenter3.png" alt="Experimenter intro."><br><img src="/images/experimenter4.png" alt="Experimenter intro."></p><p>Weka Experimenter stores 70 columns of model attributes into result file, which preserves full details for further analysis.</p><h3 id="compare-different-models"><a class="markdownIt-Anchor" href="#compare-different-models"></a> Compare different models</h3><p>What is more powerful is that Experimenter can perform test on multiple datasets with multiple machine learning models. As illustrated below, 4 machine learning models are selected to test on 2 datasets.<br><img src="/images/experimenter5.png" alt="Experimenter intro."></p><p>In the analysis tab, comparision field can be set to different measurement, such as F_measure, Kappa_statistic, but the most common is percent_correct, which is accuracy as it is selected in the example. Statistical significance is set to 0.05 by default which is suitable for most cases.<br><img src="/images/experimenter6.png" alt="Experimenter intro."></p><p>In the test output panel, J48 is selected as test base for comparison. the accuarcy marked star meaning significantly lower than test base algorithm’s accuarcy. As in the example, the accuracies of naive bayes and SVM are significantly poorer than J48’s on segment_challenge dataset. On the contrary, the accuracy of Random forest is significantly better than J48’s. That is why accuracy of random forest is marked v on the right. When there are no signs marked, the compared measurement is insignificantly poorer or better than that of test base model. As in the example, all 3 compared algorithms are insignicantly better or worse than J48 on breast-cancer dataset.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Weka provides different tools for different purpose in the Weka workbench. Weka Experimenter offers a systematic way of assessing multipl
+      
+    
+    </summary>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/categories/Data-mining/"/>
+    
+    
+      <category term="Weka" scheme="https://amplio1234.github.io/tags/Weka/"/>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/tags/Data-mining/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ensemble learning</title>
+    <link href="https://amplio1234.github.io/2018/04/02/Ensemble-learning/"/>
+    <id>https://amplio1234.github.io/2018/04/02/Ensemble-learning/</id>
+    <published>2018-04-02T09:45:35.000Z</published>
+    <updated>2018-05-23T07:41:55.691Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="what-and-why"><a class="markdownIt-Anchor" href="#what-and-why"></a> What and why?</h3><p>What is ensemble learning? The idea behind is to build different models from data, hoping they complement each other and let them vote. The final result is combined from different perspectives of models like consulting ideas from a committee of experts. By doing this, the performance usually is very good and that is why nowadays most kaggle competition winners adopt some sort of ensembling learning method. Although the result is normally robust and satisfying, the produced model is often hard to interpret.</p><h3 id="how-ensemble-learning-is-done"><a class="markdownIt-Anchor" href="#how-ensemble-learning-is-done"></a> How ensemble learning is done?</h3><p>There are 4 mainstream techniques of doing ensemble learning. They are bagging, randomisation, boosting and stacking. Those techniques work well when models are unstable. A little change in the training data for tree models could generate totally different result, hence tree models are often adopted as base learners in ensemble learning scheme.</p><p>The core of ensemble learning is to create diversity in base learners so that the ensembled model can benefit from it and have robust and excellent result.</p><p>In bagging, it creates diversity by resampling the training set and combine base learners with voting for classification problems or averaging for regression problems.</p><p>In randomisation, there is no standard way of doing it. It generally introduces some randomness in the process of learning. For example, decision tree learner can pick the best attibute to split on at each node. It could be randomised by picking one out of n best attributes at random. Random forest and genetic learning are examples of applying randomisation.</p><p>In boosting, it creates diverity by complementing where the existing base learners make errors. In bagging, the assumption is models ideally complement each other by resampling training data. In boosting, it explicitly encourages new models to become expert for instances misclassified by assigning them greater weights. Boosting unlike bagging, is an iterative process, it explicitly tries to make sure all the base models complement each other before combining to ensembled model.</p><p>In stacking, it combines result from different kinds of learners by another learner, called meta learner. Unlike bagging and boosting that combine same type base learners, stacking introduces diversity by combining different type learners. Instead of voting, stacking relies on meta learner to discover which classifiers are the reliable ones and how to combine them.</p><h3 id="example-done-in-weka"><a class="markdownIt-Anchor" href="#example-done-in-weka"></a> Example done in Weka</h3><p>In the example, I am building ensemble learning models against glass.arff dataset, which is a pre-installed dataset in Weka. As illustrated, the dataset is about relationship between glass making chemical elements and glass type.</p><p><img src="/images/glass_dataset.png" alt="glass dataset in Weka."></p><p>J48 is first applied as a baseline to compare with ensemble learning models. With default parameters, J48 gets 66.8% accuracy.<br><img src="/images/glass_J48.png" alt="J48 applied on glass dataset."></p><p>Bagging algorithm with default parameters reaches 72.4% accuracy, the margin of improvement over J48 is significant here. Note the important parameters here are bagSizePercent, batchSize, classifier, numIterations and seed. bagSize and batchSize specify each bagging batch contains how many instances and the resampling percentage from training set. Classifier specifies what base learner to use for bagging. numIterations assigns how many bagging iterations before combining. seed defines random seed for the process.<br><img src="/images/bagging1.png" alt="Bagging applied on glass dataset."><br><img src="/images/bagging2.png" alt="Bagging applied on glass dataset."></p><p>As illustrated above, the default base learner is REPTree, what if we pick J48? This time accuracy reaches 74.3%.<br><img src="/images/bagging3.png" alt="Bagging applied on glass dataset."><br><img src="/images/bagging4.png" alt="Bagging applied on glass dataset."></p><p>Let’s try randomisation by using random forest. With default parameters, the accuracy is 79.9%. This is huge improvement.<br><img src="/images/randomforest.png" alt="Random forest applied on glass dataset."></p><p>AdaBoostM1 is a typical boosting classifier in Weka that has excellent performance. Parameters are similar to those in bagging. With default parameters, the accuracy is 44.9%. As the AdaBoostM1 picks DecisionStump, a one layer decision tree, it maybe too simplified form learner for the glass classification task which has so many attributes. That may be the reason why the prediction performance is so poor here.<br><img src="/images/adaboost1.png" alt="AdaBoostM1 applied on glass dataset."><br><img src="/images/adaboost2.png" alt="AdaBoostM1 applied on glass dataset."></p><p>What if we pick J48 instead of DecisionStump? Well, the performance is greatly improved to 74.3%, same as bagging method. That looks reasonable.<br><img src="/images/adaboost3.png" alt="AdaBoostM1 applied on glass dataset."><br><img src="/images/adaboost4.png" alt="AdaBoostM1 applied on glass dataset."></p><p>Stacking is a bit tricky to reach good performance. As it is shown, stacking J48 and RandomTree to feed to a meta learner DecisonTable only reaches 65.4% accuracy.<br><img src="/images/stacking1.png" alt="Stacking applied on glass dataset."><br><img src="/images/stacking2.png" alt="Stacking applied on glass dataset."><br><img src="/images/stacking3.png" alt="Stacking applied on glass dataset."></p><p>After changing RandomTree to RandomForest and meta learner to PART, performance increases to 75.2%, still lower than using random forest model alone.<br><img src="/images/stacking4.png" alt="Stacking applied on glass dataset."><br><img src="/images/stacking5.png" alt="Stacking applied on glass dataset."><br><img src="/images/stacking6.png" alt="Stacking applied on glass dataset."></p><h3 id="summary"><a class="markdownIt-Anchor" href="#summary"></a> Summary</h3><p>Ensemble learning techniques are effective and usually boosts prediction performance. They are great tools in data science arsenal. Bagging, randomisation, boosting, stacking, which technique is the best? Again, there is no sure answer as data science is an experimental science. It depends on the problem domain and many other factors. What data scientist can do is to familiarise problem domain and keep trying.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;what-and-why&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#what-and-why&quot;&gt;&lt;/a&gt; What and why?&lt;/h3&gt;
+&lt;p&gt;What is ensemble learning? The idea behin
+      
+    
+    </summary>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/categories/Data-mining/"/>
+    
+    
+      <category term="Weka" scheme="https://amplio1234.github.io/tags/Weka/"/>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/tags/Data-mining/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Simplicity first</title>
+    <link href="https://amplio1234.github.io/2018/03/29/Simplicity-first/"/>
+    <id>https://amplio1234.github.io/2018/03/29/Simplicity-first/</id>
+    <published>2018-03-29T10:05:04.000Z</published>
+    <updated>2018-05-22T00:26:20.461Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="baseline-accuracy"><a class="markdownIt-Anchor" href="#baseline-accuracy"></a> Baseline accuracy</h3><p>What is baseline accuracy in data mining? In Weka, it provides a simple algorithm called ZeroR. It simply finds the most popular class in the training dataset and guesses that all the time.</p><p>For example, in the famous diabetes dataset, there are 500 nagative class instances and 268 positive class instances as shown in the Preprocess panel.<br><img src="/images/zeroR1.png" alt="zeroR screenshot 1"></p><p>ZeroR algorithm always predicts the majority class in the training dataset, which is positive class here. Therefore, the accuracy when doing this in the training set is 500/(500 + 268) = 0.65, which is exactly the same accuracy calculated in classify panel when applying ZeroR.<br><img src="/images/zeroR2.png" alt="zeroR screenshot 2"></p><p>Any data mining algorithm to be useful should have accuracy higher than the gambling style algorithm. That is why ZeroR is the baseline accuracy and it should always be the baseline to start with.</p><h3 id="simplicity-first"><a class="markdownIt-Anchor" href="#simplicity-first"></a> Simplicity first</h3><p>In data mining, simple algorithms often work very well. Besides, simple algorithms are easy to understand and help data scientists to learn from data. That is why data scientists should always try simple algorithms before trying more complicated ones.</p><p>In Weka, there are some recommended simple classification algorithms to start with. For example, OneR is an algorithm that builds one branch decision tree from training data, and let one attribute does all the prediciton work. Another simple algorithm is naive bayes algorithm, which assumes all the attributes contribute equally and independently.</p><p>Of course, J48, which is the decision tree algorithm in Weka, is the most frequently applied algorithm in Weka environment. It often offers excellent prediction accuracy and interpretibility.</p><p>Data mining is an experimental science, the result depends on the application domain and it is always recommended to try simple methods first.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;baseline-accuracy&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#baseline-accuracy&quot;&gt;&lt;/a&gt; Baseline accuracy&lt;/h3&gt;
+&lt;p&gt;What is baseline accuracy i
+      
+    
+    </summary>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/categories/Data-mining/"/>
+    
+    
+      <category term="Weka" scheme="https://amplio1234.github.io/tags/Weka/"/>
+    
+      <category term="Data mining" scheme="https://amplio1234.github.io/tags/Data-mining/"/>
+    
+  </entry>
   
   <entry>
     <title>Introduction to Weka</title>
